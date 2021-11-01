@@ -85,12 +85,14 @@ function Bear() {
       this.x = this.htmlElement.offsetLeft;
       //the top position (y)
       this.y = this.htmlElement.offsetTop;
+
       this.move = function (dx, dy) {
         //move the bees by dx, dy
         this.x += dx;
         this.y += dy;
         this.display();
       };
+
       this.display = function () {
         //adjust position of bee and display it
         this.fitBounds(); //add this to adjust to bounds
@@ -98,6 +100,7 @@ function Bear() {
         this.htmlElement.style.top = this.y + "px";
         this.htmlElement.style.display = "block";
       };
+
       this.fitBounds = function () {
         //check and make sure the bees stays in the board space
         let parent = this.htmlElement.parentElement;
@@ -114,6 +117,10 @@ function Bear() {
       };
     }
   }
+  //Returns a random number between 0 and max
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
   function createBeeImg(wNum) {
     //get dimension and position of board div
@@ -123,15 +130,18 @@ function Bear() {
     let boardDivX = boardDiv.offsetLeft;
     let boardDivY = boardDiv.offsetTop;
     //create the IMG element
+
     let img = document.createElement("img");
     img.setAttribute("src", "images/bee.gif");
     img.setAttribute("width", "100");
     img.setAttribute("alt", "A bee!");
     img.setAttribute("id", "bee" + wNum);
-    img.setAttribute("class", "bee"); //set class of html tag img
+    img.setAttribute("class", "bee");
+    //set class of html tag img
     //add the IMG element to the DOM as a child of the board div
     img.style.position = "absolute";
     boardDiv.appendChild(img);
+
     //set initial position
     let x = getRandomInt(boardDivW);
     let y = getRandomInt(boardDivH);
@@ -145,6 +155,7 @@ function Bear() {
     //get number of bees specified by the user
     let nbBees = document.getElementById("nbBees").value;
     nbBees = Number(nbBees); //try converting the content of the input to a number
+
     if (isNaN(nbBees)) {
       //check that the input field contains a valid number
       window.alert("Invalid number of bees");
@@ -169,6 +180,7 @@ function Bear() {
       let dx = getRandomInt(2 * speed) - speed;
       let dy = getRandomInt(2 * speed) - speed;
       bees[i].move(dx, dy);
+
       isHit(bees[i], bear); //we add this to count stings
     }
   }
@@ -232,6 +244,7 @@ function Bear() {
       Math.min(bottom1, bottom2) - Math.max(top1, top2)
     );
     intersectArea = x_intersect * y_intersect;
+
     //if intersection is nil no hit
     if (intersectArea == 0 || isNaN(intersectArea)) {
       return false;
