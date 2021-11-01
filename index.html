@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Static Template</title>
+    <meta charset="UTF-8" />
+    <title>Lab 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <script src="game.js"></script>
+    <script>
+      var updateTimer;
+      var lastStingTime;
+      var bear;
+      var bees;
+    </script>
+
+    <noscript>
+      Warning - JavaScript is Disabled. For full functionality of this page, it
+      is necessary to enable JavaScript.
+    </noscript>
   </head>
-  <body>
-    <h1>This is a static template, there is no bundler or bundling involved!</h1>
+  <body onload="start();">
+    <div id="title"></div>
+ 
+    <div id="scores"></div>
+    
+</div>
+
+    <div id="board">
+      <img src="./images/bear.gif" id="bear" alt="bear" />
+      <img src="./images/bee.gif" id="bee" alt="bee" />
+    </div>
   </body>
 </html>
