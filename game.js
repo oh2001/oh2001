@@ -92,7 +92,6 @@ function Bear() {
         this.y += dy;
         this.display();
       };
-
       this.display = function () {
         //adjust position of bee and display it
         this.fitBounds(); //add this to adjust to bounds
